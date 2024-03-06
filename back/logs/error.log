@@ -1,0 +1,25 @@
+[Mon Mar 04 19:27:51.601668 2024] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.112.4. Set the 'ServerName' directive globally to suppress this message
+[Mon Mar 04 19:28:00.941062 2024] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.51 (Debian) PHP/8.1.0 configured -- resuming normal operations
+[Mon Mar 04 19:28:00.941321 2024] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Mar 04 19:29:29.259956 2024] [php:notice] [pid 20] [client 192.168.112.1:44108] Array\n(\n    [name] => banana\n    [amnt] => 12\n    [price] => 12\n    [catcode] => 1\n)\n, referer: http://127.0.0.1:5500/
+[Mon Mar 04 19:29:29.262525 2024] [php:notice] [pid 20] [client 192.168.112.1:44108] 10.00, referer: http://127.0.0.1:5500/
+[Mon Mar 04 19:29:29.264335 2024] [php:notice] [pid 20] [client 192.168.112.1:44108] 1.2, referer: http://127.0.0.1:5500/
+[Mon Mar 04 19:29:29.264412 2024] [php:notice] [pid 20] [client 192.168.112.1:44108] 13.2, referer: http://127.0.0.1:5500/
+[Mon Mar 04 19:29:38.351596 2024] [php:notice] [pid 21] [client 192.168.112.1:59354] Array\n(\n    [name] => apple\n    [amnt] => 100\n    [price] => 1\n    [catcode] => 1\n)\n, referer: http://127.0.0.1:5500/
+[Mon Mar 04 19:29:38.354754 2024] [php:notice] [pid 21] [client 192.168.112.1:59354] 10.00, referer: http://127.0.0.1:5500/
+[Mon Mar 04 19:29:38.354817 2024] [php:notice] [pid 21] [client 192.168.112.1:59354] 0.1, referer: http://127.0.0.1:5500/
+[Mon Mar 04 19:29:38.354827 2024] [php:notice] [pid 21] [client 192.168.112.1:59354] 1.1, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:03:35.899875 2024] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.128.5. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 05 12:03:54.337238 2024] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.51 (Debian) PHP/8.1.0 configured -- resuming normal operations
+[Tue Mar 05 12:03:54.337307 2024] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Mar 05 12:05:23.658821 2024] [php:notice] [pid 20] [client 192.168.128.1:45918] Array\n(\n    [name] => apple\n    [amnt] => 100\n    [price] => 1\n    [catcode] => 1\n)\n, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:05:23.661641 2024] [php:notice] [pid 20] [client 192.168.128.1:45918] 10.00, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:05:23.662915 2024] [php:notice] [pid 20] [client 192.168.128.1:45918] 0.1, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:05:23.662963 2024] [php:notice] [pid 20] [client 192.168.128.1:45918] 1.1, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:05:34.466768 2024] [php:notice] [pid 22] [client 192.168.128.1:42136] Array\n(\n    [name] => banana\n    [amnt] => 120\n    [price] => 2\n    [catcode] => 1\n)\n, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:05:34.468257 2024] [php:notice] [pid 22] [client 192.168.128.1:42136] 10.00, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:05:34.468339 2024] [php:notice] [pid 22] [client 192.168.128.1:42136] 0.2, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:05:34.468344 2024] [php:notice] [pid 22] [client 192.168.128.1:42136] 2.2, referer: http://127.0.0.1:5500/
+[Tue Mar 05 12:53:06.133219 2024] [php:notice] [pid 19] [client 192.168.128.1:41880] Array\n(\n)\n
