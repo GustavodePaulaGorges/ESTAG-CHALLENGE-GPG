@@ -1,16 +1,21 @@
 "use strict";
-const getOrders = fetch("http://localhost/routers/orders.php?op=GET").then((res) => {
-  return res.json()
-})
+const getOrders = fetch("http://localhost/routers/orders.php?op=GET").then(
+  (res) => {
+    return res.json();
+  }
+);
 
-const getOrder_items = fetch("http://localhost/routers/order_items.php?op=GET").then((res) => {
-  return res.json()
-})
+const getOrder_items = fetch(
+  "http://localhost/routers/order_items.php?op=GET"
+).then((res) => {
+  return res.json();
+});
 
-const getProducts = fetch("http://localhost/routers/products.php?op=GET").then((res) => {
-  return res.json()
-})
-
+const getProducts = fetch("http://localhost/routers/products.php?op=GET").then(
+  (res) => {
+    return res.json();
+  }
+);
 
 const openModal = () =>
   document.getElementById("modal").classList.add("active");
@@ -44,26 +49,26 @@ const clearTable = () => {
 
 const updateTable = async () => {
   clearTable();
-  let orders = await getOrders
-  orders.forEach(createRow)
+  let orders = await getOrders;
+  orders.forEach(createRow);
 };
 
 const openPurchase = async (event) => {
   const [action, index] = event.target.id.split("-");
-  const listOrder_items = await getOrder_items
-  const orderSelected = listOrder_items.filter(i => i.order_code === index)
+  const listOrder_items = await getOrder_items;
+  const orderSelected = listOrder_items.filter((i) => i.order_code === index);
   for (let item of orderSelected) {
-    createModal(item)
+    createModal(item);
   }
 };
 
 const createModal = async (item) => {
-  const listProducts = await getProducts
+  const listProducts = await getProducts;
   let itemProduct = listProducts.find((obj) => obj.code == item.product_code);
-  let taxTotal = itemProduct.tax_price * item.amount
-  console.log(itemProduct) 
+  let taxTotal = itemProduct.tax_price * item.amount;
+  console.log(itemProduct);
   const modalInfo = document.createElement("tbody");
-    modalInfo.innerHTML += `
+  modalInfo.innerHTML += `
         <tr class="othRow">
             <td>${itemProduct.name}</td>
             <td>$${itemProduct.price}</td>
@@ -73,7 +78,6 @@ const createModal = async (item) => {
             <td>$${taxTotal.toFixed(2)}</td>
         </tr>
         `;
-  
 
   document
     .querySelector("#PurchasesTable")
@@ -84,7 +88,6 @@ const createModal = async (item) => {
 document
   .querySelector("#purchaseTable")
   .addEventListener("click", openPurchase);
-
 
 document.querySelector("#modal").addEventListener("click", closeModal);
 document.querySelector("#modal").addEventListener("click", clearTable);

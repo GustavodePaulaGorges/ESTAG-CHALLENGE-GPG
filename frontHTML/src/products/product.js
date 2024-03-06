@@ -1,16 +1,15 @@
-const urlGet = "http://localhost/routers/products.php?op=GET"
-const urlPost = "http://localhost/routers/products.php?op=POST"
-const urlPut = "http://localhost/routers/products.php?op=PUT"
-const urlDelete = "http://localhost/routers/products.php?op=DELETE"
-const urlCate = "http://localhost/routers/categories.php?op=GET"
+const urlGet = "http://localhost/routers/products.php?op=GET";
+const urlPost = "http://localhost/routers/products.php?op=POST";
+const urlPut = "http://localhost/routers/products.php?op=PUT";
+const urlDelete = "http://localhost/routers/products.php?op=DELETE";
+const urlCate = "http://localhost/routers/categories.php?op=GET";
 
 const select = document.querySelector("select");
 const form = document.getElementById("prodForm");
-const inpName = document.getElementById("prodName")
-const inpAmnt = document.getElementById("prodAmnt")
-const inpPrice = document.getElementById("uniPrice")
-const inpCat = document.getElementById("prodCat")
-
+const inpName = document.getElementById("prodName");
+const inpAmnt = document.getElementById("prodAmnt");
+const inpPrice = document.getElementById("uniPrice");
+const inpCat = document.getElementById("prodCat");
 
 const postProduct = () => {
   form.addEventListener("submit", async (event) => {
@@ -28,14 +27,13 @@ const postProduct = () => {
   });
 };
 
-
 const updateProduct = () => {
   const data = {
     code: inpName.dataset.index,
     name: inpName.value,
     amnt: inpAmnt.value,
     price: inpPrice.value,
-    catcode : inpCat.value
+    catcode: inpCat.value,
   };
   const f_data = objectToFormData(data);
   form.addEventListener("submit", async (event) => {
@@ -66,9 +64,7 @@ const deleteProduct = async (code) => {
   } catch (error) {
     console.log(error.message);
   }
-  
 };
-
 
 const clearFields = () => {
   const fields = document.querySelectorAll(".formInput");
@@ -76,22 +72,22 @@ const clearFields = () => {
 };
 
 const getCategories = fetch(urlCate).then((res) => {
-  return res.json()
-})
+  return res.json();
+});
 
 const getProducts = fetch(urlGet).then((res) => {
-  return res.json()
-})
+  return res.json();
+});
 
 const createOptions = async () => {
-  let categories = await getCategories
+  let categories = await getCategories;
   for (const i of categories) {
     const option = document.createElement("option");
     option.textContent = i.name;
     option.value = parseInt(i.code);
     select.appendChild(option);
   }
-}
+};
 
 function objectToFormData(obj) {
   const formData = new FormData();
@@ -102,42 +98,21 @@ function objectToFormData(obj) {
   return formData;
 }
 
-createOptions()
+createOptions();
 
 const isValidFields = () => {
   return document.getElementById("prodForm").reportValidity();
 };
 const updateTable = async () => {
   clearTable();
-  let products = await getProducts
-  products.forEach(createRow)
-};
-
-const validateInput = (product) => {
-  let inputs = Object.values(product);
-  const spcChars = `/()<>{}[]`;
-  for (let input of inputs) {
-    const result = spcChars.split("").some((char) => {
-      if (JSON.stringify(input).includes(char)) {
-        alert("this is not a valid input");
-        throw new Error("PEPE VOCÊ NÃO É BEM VINDO");
-        stop;
-      }
-    });
-  }
+  let products = await getProducts;
+  products.forEach(createRow);
 };
 
 const saveProduct = () => {
   if (isValidFields()) {
-    const product = {
-      name : document.getElementById("prodName").value,
-      amount : document.getElementById("prodAmnt").value,
-      price : document.getElementById("uniPrice").value,
-      category : document.querySelector("select").value,
-    };
     const index = document.getElementById("prodName").dataset.index;
     if (index == "new") {
-      console.log(product)
       postProduct();
       updateTable();
     } else {
@@ -147,21 +122,18 @@ const saveProduct = () => {
   }
 };
 
-
 const createRow = async (data) => {
   const newRow = document.createElement("tr");
-  let categories = await getCategories
-  selectedCategory = categories.find(item =>(item.code === data.category_code) )
+  let categories = await getCategories;
+  selectedCategory = categories.find(
+    (item) => item.code === data.category_code
+  );
 
   newRow.innerHTML = `
     <td id="content">${data.code}</td>
-    <td id="content">${data.name
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")}</td>
+    <td id="content">${data.name}</td>
     <td id="content">${data.amount}</td>
-    <td id="content">$${data.price
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")}</td>
+    <td id="content">$${data.price}</td>
     <td id="content">${selectedCategory.name} </td>
     <td id="content">$${data.taxed_price}</td>
     <td> 
@@ -214,7 +186,7 @@ const editDelete = async (event) => {
       );
       if (response) {
         deleteProduct(product.code);
-        window.location.reload()
+        window.location.reload();
       }
     }
   }

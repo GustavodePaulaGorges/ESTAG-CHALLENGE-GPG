@@ -57,7 +57,6 @@ const deleteCategory = async (code) => {
   } catch (error) {
     console.log(error.message);
   }
-  
 };
 
 const updateCategory = () => {
@@ -81,14 +80,9 @@ const updateCategory = () => {
 
 const saveCategory = async () => {
   if (isValidFields()) {
-    const category = {
-      name: document.getElementById("catName").value,
-      tax: document.getElementById("catTax").value,
-    };
     const index = document.getElementById("catName").dataset.index;
 
     if (index == "new") {
-      validateInput(category);
       postCategory();
       updateTable();
     } else {
@@ -98,30 +92,12 @@ const saveCategory = async () => {
   }
 };
 
-const validateInput = (category) => {
-  let inputs = Object.values(category);
-  const spcChars = `/()<>{}[]`;
-  for (let input of inputs) {
-    const result = spcChars.split("").some((char) => {
-      if (input.includes(char)) {
-        alert("this is not a valid input");
-        throw new Error("PEPE VOCÊ NÃO É BEM VINDO");
-        stop;
-      }
-    });
-  }
-};
-
 const createRow = (data) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
     <td id="content">${data.code}</td>
-    <td id="content">${data.name
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")}</td>
-    <td id="content">${data.tax
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")} %</td>
+    <td id="content">${data.name}</td>
+    <td id="content">${data.tax} %</td>
     <td> 
       <button class="secBtn" id='edit-${data.code}'>Edit</button>
       <button class="mainBtn" id='delete-${data.code}' >Delete</button>
@@ -172,7 +148,7 @@ const editDelete = async (event) => {
       );
       if (response) {
         deleteCategory(category.code);
-        window.location.reload()
+        window.location.reload();
       }
     }
   }
