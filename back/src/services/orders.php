@@ -11,7 +11,7 @@ function getOrders(){
 };
 
 function postOrder($code, $total, $tax){
-    $addOrder = myPDO->prepare("INSERT INTO orders(CODE, TOTAl, TAX) VALUES ('$code', '$total', '$tax')");
+    $addOrder = myPDO->prepare("INSERT INTO orders(CODE, TOTAl, TAX) VALUES ('$code', $total, $tax)");
     $addOrder->execute();
 };
 

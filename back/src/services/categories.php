@@ -12,7 +12,7 @@ function getCategories(){
 
 function postCategory($name, $tax){
     
-    $addCategory = constant("myPDO")->prepare("INSERT INTO categories(NAME, TAX) VALUES ('$name', '$tax')");
+    $addCategory = constant("myPDO")->prepare("INSERT INTO categories(NAME, TAX) VALUES ('$name', $tax)");
     $addCategory->execute();
 };
 
