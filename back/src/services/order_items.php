@@ -15,9 +15,12 @@ function postOrder_Item($order_code, $prod_code, $amount){
     $sql = "SELECT * FROM products WHERE code = $prod_code;";
     $stmt = myPDO->query($sql);
     $prodQuery = $stmt->fetch();
+
     $unit_tax = $prodQuery["tax_price"];
     $unit_price = $prodQuery["taxed_price"];
+
     $oldAmnt = $prodQuery["amount"];
+    
     $tax = floatval($unit_tax) * floatval($amount);
     $price = floatval($unit_price) * floatval($amount);
     $newAmnt = intval($oldAmnt) - intval($amount);

@@ -12,7 +12,8 @@ function runRequestMethod(){
             $price = $_POST["price"];
             $amnt = filter_input(INPUT_POST, "catcode", FILTER_SANITIZE_NUMBER_INT);
             $catcode = filter_input(INPUT_POST, "amnt", FILTER_SANITIZE_NUMBER_INT);
-            echo postProduct($name, $price, $catcode, $amnt);
+            $image = filter_input(INPUT_POST, "image", FILTER_SANITIZE_URL);
+            echo postProduct($name, $price, $catcode, $amnt, $image);
             break;
         case "PUT":
             $code = $_POST["code"];

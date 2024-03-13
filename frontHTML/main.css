@@ -72,7 +72,7 @@ a {
 
 .cartForm {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 1vh;
   grid-row-gap: 1vh;
   height: 15%;
@@ -244,7 +244,9 @@ tr.othRow th:last-child {
   border-right: none;
 }
 
-
+.row{
+  vertical-align: middle !important;
+}
 
 .finishForm {
   height: 20%;
