@@ -1,0 +1,104 @@
+#root {
+  width: 100%;
+}
+
+:root {
+  --main: #3f69ff;
+  --light-main: #94abfd;
+  --background: rgb(250, 255, 253);
+  --block: #e7e7eb;
+  --block-alt: #c6c6ca;
+  --text: #292933;
+  --text-transparent: #29293336;
+  --danger: #ef233c;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--text);
+  background-color: var(--background);
+  font-size: calc(0.25vh + 0.90vw);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--background);
+  text-decoration: inherit;
+  transition: all 0.2s;
+  display: block;
+  position: relative;
+  padding: 0.2vh 0;
+  overflow: hidden;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--background);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+a::after {
+  opacity: 1;
+  transform: translate3d(-110%, 0, 0);
+}
+
+a:hover::after,
+a:focus::after {
+  transform: translate3d(0, 0, 0);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+main {
+  padding-inline: 6%;
+  width: 100%;
+  height: 100dvh;
+  overflow-y: scroll;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5% 1%;
+  font-size: 80%;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--main);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+button:hover {
+  border-color: var(--text);
+  background-color: var(--light-main);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.mainBody {
+  display: flex;
+  justify-content: space-between;
+}

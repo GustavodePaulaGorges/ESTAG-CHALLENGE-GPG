@@ -62,7 +62,7 @@ const deleteProduct = async (code) => {
       body: f_data,
     });
   } catch (error) {
-    console.log(error.message);
+    alert(error.message);
   }
 };
 

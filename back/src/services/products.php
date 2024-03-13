@@ -12,7 +12,7 @@ function getProducts()
 }
 ;
 
-function postProduct($name, $price, $amnt, $catcode)
+function postProduct($name, $price, $amnt, $catcode, $image)
 {
     $sql = "SELECT tax FROM categories WHERE code = $catcode;";
     $stmt = constant("myPDO")->query($sql);
@@ -22,7 +22,7 @@ function postProduct($name, $price, $amnt, $catcode)
     $taxPrice = floatval($price) * (floatval($tax) / 100);
     $taxedPrice = floatval($taxPrice) + floatval($price);
 
-    $addProduct = myPDO->prepare("INSERT INTO products(NAME, PRICE, TAX_PRICE, TAXED_PRICE, AMOUNT, CATEGORY_CODE) VALUES ('$name', $price, $taxPrice, $taxedPrice, $amnt, $catcode)");
+    $addProduct = myPDO->prepare("INSERT INTO products(NAME, PRICE, TAX_PRICE, TAXED_PRICE, AMOUNT, CATEGORY_CODE, IMAGE) VALUES ('$name', $price, $taxPrice, $taxedPrice, $amnt, $catcode, '$image')");
     $addProduct->execute();
 }
 ;
