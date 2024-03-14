@@ -3,8 +3,11 @@ const types_teste = {
     PROD_OPEN: "PROD_OPEN",
     CATEGORY_OPEN : "CATEGORY_OPEN",
     USER_LOGIN : "USER_LOGIN",
-    USER_LOGOUT : "USER_LOGOUT"
-
+    USER_LOGOUT : "USER_LOGOUT",
+    CART_ADD : "CART_ADD",
+    CART_REMOVE : "CART_REMOVE",
+    CART_INCREASE : "CART_INCREASE",
+    CART_DECREASE : "CART_DECREASE",
 }
 
 export default types_teste

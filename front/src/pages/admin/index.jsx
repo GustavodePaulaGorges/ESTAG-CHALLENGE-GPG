@@ -20,6 +20,7 @@ function Admin() {
     setCategories(data);
   }
 
+  
   useEffect(() => {
     getCategories();
   }, []);

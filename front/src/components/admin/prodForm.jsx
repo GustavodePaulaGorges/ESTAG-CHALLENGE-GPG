@@ -5,8 +5,7 @@ import RemoveItem from "../../assets/RemoveItem.svg";
 
 import ProductService from "../../services/products";
 
-
-function prodForm({categories}) {
+function prodForm({ categories }) {
   const { currentProd } = useSelector((state) => state.prodReducer);
 
   const [name, setName] = useState("");
@@ -14,7 +13,6 @@ function prodForm({categories}) {
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
-
 
   const postProduct = async (e) => {
     e.preventDefault();
@@ -32,8 +30,6 @@ function prodForm({categories}) {
   const handleOpenProd = () => {
     dispatch(setProd(!currentProd));
   };
-
-
 
   return (
     <>
@@ -68,8 +64,12 @@ function prodForm({categories}) {
                 name="prodCategory"
                 onChange={(e) => {
                   setCategory(e.target.value);
+                  console.log(e.target.value);
                 }}
               >
+                <option disabled selected>
+                  Selecione uma Categoria
+                </option>
                 {categories.map((category) => (
                   <option value={category.code}>{category.name}</option>
                 ))}

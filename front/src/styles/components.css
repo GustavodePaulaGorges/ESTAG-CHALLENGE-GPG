@@ -149,6 +149,11 @@ button {
   box-shadow: 1vh 1vh var(--block-alt);
 }
 
+.taxPrice{
+  font-size: calc(0.20vh + 0.70vw);
+  opacity: 0.8;
+}
+
 .ProdCard:hover {
   box-shadow: 2vh 2vh var(--main);
 }
@@ -157,11 +162,25 @@ button {
   background-color: var(--block-alt);
 }
 
+.indis{
+  border: 2px solid var(--block);
+}
+
+.indisBtn {
+  opacity: 0.5;
+  background-color: var(--danger);
+  width: 80%;
+  color: var(--background);
+  margin-top: 1vh;
+  padding-block: 1vh;
+}
+
 .prodName{
   width: 100%;
   text-align: center;
   overflow-wrap: break-word;
   hyphens: auto;
+  font-weight: bold;
 }
 
 .NHigh {
@@ -382,6 +401,22 @@ button {
   filter: brightness(100);
 }
 
+.QntyInfo{
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  font-weight: bolder;
+}
+
+.QntyInfo img{
+  transition: all 0.2s;
+  border-radius: 1vh;
+}
+
+.QntyInfo img:hover{
+  background-color: var(--text-transparent);
+}
+
 /* CADLIST */
 
 .adminList {
@@ -490,6 +525,14 @@ tr th:last-child {
   right: 0;
 }
 
+.dropdown:hover .dropdown-content1 {
+  display: flex;
+  padding: 1dvh;
+  overflow: hidden;
+  z-index: 10;
+  right: 0;
+}
+
 
 
 /* Modal */
@@ -553,9 +596,12 @@ tr th:last-child {
 
 .OrderWrap {
   position: relative;
-  display: inline-block;
+  display: flex;
+  overflow: visible;
+  flex-direction: column;
   padding: 1vh;
   width: 90%;
+  min-height: 7vh;
   border-radius: 1vh;
   background-color: var(--block);
   outline: var(--text) 1px solid;
@@ -565,6 +611,7 @@ tr th:last-child {
 }
 
 .OrderWrap:hover {
+  min-height: 30vh;
   box-shadow: 2vh 2vh var(--main);
   margin-bottom: 1vh;
 }
@@ -577,14 +624,16 @@ tr th:last-child {
 .OrderItems {
   visibility: hidden;
   max-height: 0;
-  max-width: 0;
-  overflow: hidden;
+  max-width: 100%;
+  overflow: visible;
   z-index: 20;
   transition: all 0.2s;
+  opacity: 0;
 }
 
 .OrderWrap:hover .OrderItems {
   visibility: visible;
+  opacity: 1;
   max-height: 10%;
   max-width: 100%;
   transition: all 0.25s;
@@ -599,11 +648,15 @@ tr th:last-child {
   padding: 1vh;
   align-items: center;
   overflow-y: scroll;
+  border-top: 1px solid var(--text);
 }
 
 .orderBox {
   width: 60dvw;
+  border-radius: 1vh;
 }
+
+
 
 .orderWrap {
   width: 100%;

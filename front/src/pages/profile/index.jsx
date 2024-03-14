@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 import NavHeader from "../../components/NavHeader";
 import CartBar from "../../components/CartBar";
@@ -6,7 +5,7 @@ import OrderList from "../../components/history/orderList";
 import "../../styles/global.css";
 
 function Profile() {
-
+  
   return (
     <>
       <NavHeader />
@@ -14,7 +13,7 @@ function Profile() {
         <div className="w100">
           <main>
             <div className="ProfileBody">
-              <OrderList />
+              <OrderList/>
             </div>
           </main>
         </div>

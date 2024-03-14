@@ -15,7 +15,7 @@ function getProducts()
 function postProduct($name, $price, $amnt, $catcode, $image)
 {
     $sql = "SELECT tax FROM categories WHERE code = $catcode;";
-    $stmt = constant("myPDO")->query($sql);
+    $stmt = myPDO->query($sql);
     $taxQuery = $stmt->fetch();
     $tax = $taxQuery["tax"];
 

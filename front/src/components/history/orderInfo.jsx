@@ -1,16 +1,46 @@
-function OrderInfo() {
+import { useState, useEffect } from "react";
+import ProductService from "../../services/products";
+
+function OrderInfo({item}) {
+  const [products, setProducts] = useState([]);
+  const [selectedProd, setSelectedProduct] = useState({})
+
+  async function getProducts() {
+    await ProductService.getAllProducts().then(async (res) => {
+      setProducts(res)
+      const selectedProduct = res.find((product) => product.code === item.product_code)
+      console.log(res)
+      setSelectedProduct(selectedProduct)
+    })
+  }
+
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+
+  
   return (
     <>
       <div className="cartRow">
         <div className="textImg">
-          <img
-            src="https://images.freeimages.com/images/large-previews/379/banana-1328691.jpg"
-            className="cartImg"
-          ></img>
-          <span>NOME DO PRODUTO</span>
+          <span>{selectedProd.name}</span>
         </div>
-        <span>12 Unidades</span>
-        <span>R$12.12</span>
+        <span>{item.amount} unidade(s)</span>
+        <span>R${item.price}</span>
+        <div className="dropdown">
+            <img
+              src={selectedProd.image}
+              className="ProductImg"
+            ></img>
+            <div className="dropdown-content">
+              <img
+                src={selectedProd.image}
+                className="ProdImgExpanded"
+              ></img>
+            </div>
+          </div>
       </div>
     </>
   );

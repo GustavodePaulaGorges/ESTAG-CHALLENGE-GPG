@@ -3,15 +3,23 @@ import SuiteLogo from "../../public/SuiteStorelight.svg";
 import CartIcon from "../assets/cart.svg";
 import ArrowIcon from "../assets/arrowDown.svg";
 import BarrelRoll from "../media/barrelRoll.mp3";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../redux/actions/setCart";
 import { Link } from "react-router-dom";
+import rootReducer from "../redux/root-reducer";
+import { selectProdCount } from "../redux/selectors/cartSelector";
 
 function NavHeader() {
   const [classState, setClass] = useState(false);
   const { currentCart } = useSelector((state) => state.cartReducer);
-  // console.log(currentCart)
+
+  const productsCount = useSelector(selectProdCount);
+
+  const { products } = useSelector(
+    (rootReducer) => rootReducer.cartInfoReducer
+  );
+
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
   const dispatch = useDispatch();
 
@@ -51,6 +59,7 @@ function NavHeader() {
               className={currentCart ? "NavIcon r180" : "NavIcon"}
               src={ArrowIcon}
             />
+            ({productsCount})
           </div>
         </div>
       </nav>

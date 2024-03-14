@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
+
 ### Node ###
 # Logs
 logs
@@ -142,3 +143,5 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+front/src/assets/checkIcon.svgZone.Identifier
+scripts/node.shZone.Identifier
