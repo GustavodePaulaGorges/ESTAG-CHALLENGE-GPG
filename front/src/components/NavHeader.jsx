@@ -47,10 +47,10 @@ function NavHeader() {
             alt="Suite Store Logo"
           />
           <div className="NavLinks">
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
             <Link to="/admin">Cadastrar Produtos</Link>
             {/* !!!!!!! Fazer um IF pra caso n esteja logado aparecer o LOGIN/CADASTRO, e se tiver aparecer um link pro perfil !!!!!*/}
-            <Link to="#0">Log-in/Cadastro</Link>
+            <Link to="/">Log-in/Cadastro</Link>
             <Link to="/history">Histórico</Link>
           </div>
           <div className="cartBtn" onClick={handleOpenCart}>
