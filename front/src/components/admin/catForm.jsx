@@ -45,6 +45,7 @@ function catForm() {
             <div>
               <label for="catName">Nome</label>
               <input
+                required
                 className="w-80"
                 name="catName"
                 onChange={(e) => {
@@ -55,6 +56,7 @@ function catForm() {
             <div>
               <label for="catTax">Porcentagem de taxa</label>
               <input
+                required
                 className="w-80"
                 type="number"
                 max={100}

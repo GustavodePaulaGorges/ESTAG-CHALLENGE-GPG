@@ -6,6 +6,7 @@ import { useState } from "react";
 function ProductsList({ products, categories }) {
   const [category, setCategory] = useState("");
   const [selectedProds, setSelectedProds] = useState([]);
+  const firstName = localStorage.getItem("f_name");
 
   const onChangeCategory = (categoria) => {
     let listSelectedProds = products.filter(
@@ -18,7 +19,7 @@ function ProductsList({ products, categories }) {
     <>
       <div className="ListHead">
         <div>
-          <h2>O que você está procurando hoje?</h2>
+          <h2>O que você está procurando hoje {firstName}?</h2>
           <select
             className="SelectCategory"
             onChange={(e) => {

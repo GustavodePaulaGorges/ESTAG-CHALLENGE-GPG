@@ -675,6 +675,10 @@ tr th:last-child {
   align-items: center;
 }
 
+.main{
+  color: var(--main);
+}
+
 .loginWrapper {
   background-color: var(--block);
   display: grid;
@@ -684,18 +688,26 @@ tr th:last-child {
 }
 
 .loginHead{
-  width: 60%;
+  width: 70%;
   padding: 2%;
 }
 
-.loginForm{
+.loginForm, .registerForm{
   padding: 2%;
-  height: 24vh;
   border-top: 4px solid var(--text) ;
   background-color: var(--background);
   display: flex;
   justify-content: space-between;
   padding-bottom: 4vh;
+}
+
+.loginForm{
+  height: 24vh;
+}
+
+.registerForm{
+  height: 42vh;
+  flex-direction: column;
 }
 
 .loginForm button {
@@ -704,15 +716,30 @@ tr th:last-child {
   padding-inline: 1vw;
 }
 
-.loginInfo{
+.registerForm button {
   height: 100%;
-  width: 60%;
+  width: 10%;
+  padding-inline: 1vw;
+}
+
+.loginInfo, .registerInfo{
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.loginInfo div{
+.registerInfo{
+  width: 90%;
+  height: 75%;
+}
+
+.loginInfo{
+  width: 60%;
+  height: 100%;
+}
+
+.loginInfo div, .registerInfo div{
   font-weight: bold;
   font-size: calc(0.4vh + 1.2vw);
   height: 40%;
@@ -721,6 +748,9 @@ tr th:last-child {
   justify-content: space-between;
 }
 
+.registerInfo div{
+  font-size: calc(0.3vh + 1vw);
+}
 
 .loginInput {
   height: 100%;
@@ -743,16 +773,16 @@ tr th:last-child {
 
 .BtnDoor {
   position: absolute;
-  height: 10vh;
-  width: 5vw;
-  right: -0.5vw;
+  height: 100%;
+  width: 50%;
+  right: 10%;
 }
 
 .BtnArrow {
   position: absolute;
-  height: 6vh;
-  width: 3vw;
-  left: 1vw;
+  height: 80%;
+  width: 50%;
+  left: 10%;
 }
 
 .ArrowAnimate {
@@ -762,6 +792,10 @@ tr th:last-child {
   animation-iteration-count: infinite;
 }
 
+.RegisterWrap{
+  display: flex;
+  height: 20%;
+}
 
 .BtnLogIn{
   width: 80%;
@@ -772,14 +806,35 @@ tr th:last-child {
   background-color: #3d43ff;
 }
 
+.newHere{
+  background-color: var(--background);
+  padding: 2%;
+}
+
+.newHereLink {
+  color: var(--main);
+  font-weight: bold;
+  font-size: large;
+  width: max-content;
+}
+
+.newHereLink::after {
+  background-color: var(--main);
+}
+
+.newHereLink:hover{
+  color: var(--light-main);
+}
+
 @keyframes goingIn{
   0%{
-    left: 0.5vw;
+    left: 10%;
   }
   50%{
-    left: 1.5vw;
+    left: 28%;
   }
   100%{
-    left: 0.5vw;
+    left: 10%;
   }
 }
+

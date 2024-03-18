@@ -49,9 +49,7 @@ function NavHeader() {
           <div className="NavLinks">
             <Link to="/home">Home</Link>
             <Link to="/admin">Cadastrar Produtos</Link>
-            {/* !!!!!!! Fazer um IF pra caso n esteja logado aparecer o LOGIN/CADASTRO, e se tiver aparecer um link pro perfil !!!!!*/}
-            <Link to="/">Log-in/Cadastro</Link>
-            <Link to="/history">Histórico</Link>
+            <Link to="/history">Perfil</Link>
           </div>
           <div className="cartBtn" onClick={handleOpenCart}>
             <img className="NavIcon" src={CartIcon} />
